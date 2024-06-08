@@ -17,27 +17,24 @@ jobs:
       id: get_commit_message
       run: |
         COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-        echo "::set-output name=message::$COMMIT_MESSAGE"
+        echo "message=${COMMIT_MESSAGE}" >> $GITHUB_ENV
 
     - name: Check if commit message matches regex
       id: check_regex
       run: |
-        if [[ "${{ steps.get_commit_message.outputs.message }}" =~ release-milestone ]]; then
-          echo "::set-output name=matches::true"
+        if [[ "${{ env.message }}" =~ release-milestone ]]; then
+          echo "matches=true" >> $GITHUB_ENV
         else
-          echo "::set-output name=matches::false"
-        fi
+          echo "matches=false" >> $GITHUB_ENV
 
     - name: Create Release
-      if: steps.check_regex.outputs.matches == 'true'
-      id: create_release
+      if: env.matches == 'true'
       uses: actions/create-release@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }}
+        tag_name: ${{ github.ref_name }}
+        release_name: ${{ github.ref_name }}
         body: |
-          Release based on commit: ${{ steps.get_commit_message.outputs.message }}
+          Release based on commit: ${{ env.message }}
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
-
