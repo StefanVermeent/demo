@@ -6,6 +6,11 @@ csl: apa.csl
 link-citations: true
 ---
 
+```{r}
+devtools::load_all('D:/repositories/projectlog')
+```
+
+
 *Last updated `r format(Sys.time(), 'on %A, %B %d, %Y at %I:%M %p')`*
 
 ## Overview
@@ -27,4 +32,9 @@ The names of each folder are intended to be self-explanatory. There are six comp
 
 ## References
 
+```{r}
+milestones <- projectlog::generate_milestone_overview()
+
+milestones
+```
            
