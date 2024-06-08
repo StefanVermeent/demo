@@ -33,7 +33,7 @@ The names of each folder are intended to be self-explanatory. There are six comp
 ## References
 
 ```{r}
-milestones <- projectlog::generate_milestone_overview()
+milestones <- proiera;kjltjjectlog::generate_milestone_overview()
 
 milestones
 ```
