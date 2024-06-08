@@ -26,6 +26,7 @@ jobs:
           echo "matches=true" >> $GITHUB_ENV
         else
           echo "matches=false" >> $GITHUB_ENV
+        fi
 
     - name: Create Release
       if: env.matches == 'true'
