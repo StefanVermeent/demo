@@ -1,0 +1,43 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - '**'  # Triggers on any tag
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Get commit message
+      id: get_commit_message
+      run: |
+        COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+        echo "::set-output name=message::$COMMIT_MESSAGE"
+
+    - name: Check if commit message matches regex
+      id: check_regex
+      run: |
+        if [[ "${{ steps.get_commit_message.outputs.message }}" =~ release-milestone ]]; then
+          echo "::set-output name=matches::true"
+        else
+          echo "::set-output name=matches::false"
+        fi
+
+    - name: Create Release
+      if: steps.check_regex.outputs.matches == 'true'
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        body: |
+          Release based on commit: ${{ steps.get_commit_message.outputs.message }}
+        draft: false
+        prerelease: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+
