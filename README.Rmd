@@ -5,7 +5,7 @@ bibliography: bib-files/references.bib
 csl: apa.csl
 link-citations: true
 ---
-
+ddd
 ```{r}
 devtools::load_all('D:/repositories/projectlog')
 ```
