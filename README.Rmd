@@ -9,7 +9,7 @@ link-citations: true
 ```{r}
 devtools::load_all('D:/repositories/projectlog')
 ```
- lkd;jakj
+ lkd;jakjeee
 
 *Last updated `r format(Sys.time(), 'on %A, %B %d, %Y at %I:%M %p')`*
 
