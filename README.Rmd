@@ -29,7 +29,7 @@ The names of each folder are intended to be self-explanatory. There are six comp
 4.  [`preregistration`](https://github.com/StefanVermeent/demo/tree/master/preregistration): a preregistration document that details the plans for this project.
 5.  [`scripts`](https://github.com/StefanVermeent/demo/tree/master/scripts): R-scripts that read, analyze, and produce all outputs.
 6.  [`supplement`](https://github.com/StefanVermeent/demo/tree/master/supplement): a supplemental text with additional information and materials.
-
+dd
 ## References
 
 ```{r}
