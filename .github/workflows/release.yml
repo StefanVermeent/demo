@@ -20,15 +20,15 @@ jobs:
       id: get_commit_message
       run: |
         COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-        echo 'message=${COMMIT_MESSAGE}' >> $GITHUB_ENV
+        echo "message=${COMMIT_MESSAGE}" >> $GITHUB_ENV
 
     - name: Check if commit message matches regex
       id: check_regex
       run: |
-        if [[ '${{ env.message }}' =~ release-milestone ]]; then
-          echo 'matches=true' >> $GITHUB_ENV
+        if [[ "${{ env.message }}" =~ release-milestone ]]; then
+          echo "matches=true" >> $GITHUB_ENV
         else
-          echo 'matches=false' >> $GITHUB_ENV
+          echo "matches=false" >> $GITHUB_ENV
         fi
 
     - name: Create Release
@@ -44,4 +44,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-           
+
