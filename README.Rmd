@@ -17,7 +17,7 @@ devtools::load_all('D:/repositories/projectlog')
 dafd
 This repository contains a preregistration, data, code, an (eventual) reproducible manuscript/supplement for a project entitled '[Your title here]'.
 afdaf
-blabla.
+blabla.54w76y54
 
 ## Directory Structure
 
