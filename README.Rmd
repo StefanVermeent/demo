@@ -14,7 +14,7 @@ devtools::load_all('D:/repositories/projectlog')
 *Last updated `r format(Sys.time(), 'on %A, %B %d, %Y at %I:%M %p')`*
 
 ## Overview
-
+dafd
 This repository contains a preregistration, data, code, an (eventual) reproducible manuscript/supplement for a project entitled '[Your title here]'.
 
 blabla.
